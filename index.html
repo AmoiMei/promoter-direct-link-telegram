@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>U9Play Promoter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Join U9Play as a promoter and earn RM5 per player you refer via Telegram!" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+      background-image: url('WhatsApp%20Image%202025-08-06%20at%208.59.06%20AM.jpeg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+
+    .overlay {
+      animation: fadeIn 1s ease-in;
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 40px 60px;
+      border-radius: 12px;
+      max-width: 420px;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: 0 0 15px #000;
+      position: relative;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: scale(0.95); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 28px;
+      color: #f1c40f;
+      margin: 0 0 15px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 0 0 30px;
+    }
+
+    .promoter-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #25D366;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    .promoter-link:hover {
+      background-color: #1ebe5d;
+      animation: pulse 0.5s ease;
+      transform: scale(1.05);
+    }
+
+    .promoter-link img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .bonus-link {
+      background-color: #f1c40f;
+      color: black;
+    }
+
+    .bonus-link:hover {
+      background-color: #d4ac0d;
+    }
+
+    .group-link {
+      background-color: #0088cc;
+      color: white;
+    }
+
+    .group-link:hover {
+      background-color: #007ab8;
+    }
+
+    .instructions {
+      font-size: 13px;
+      color: #ccc;
+      margin-bottom: 20px;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+      100% { transform: scale(1); }
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .footer a {
+      color: #aaa;
+      text-decoration: none;
+    }
+
+    /* Language Dropdown */
+    .lang-dropdown {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      z-index: 5;
+      user-select: none;
+    }
+
+    .dropdown-toggle {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      right: 0;
+      top: 40px;
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      width: 140px;
+    }
+
+    .dropdown-menu.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-menu div {
+      padding: 10px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .dropdown-menu div:hover {
+      background-color: #f1c40f;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay">
+
+    <!-- Language Switcher -->
+    <div class="lang-dropdown">
+      <div class="dropdown-toggle" onclick="toggleDropdown()">🌐 Language</div>
+      <div class="dropdown-menu" id="langMenu">
+        <div onclick="switchLang('en')">🇬🇧 English</div>
+        <div onclick="switchLang('ms')">🇲🇾 Bahasa Melayu</div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <h1 id="headline">💼 Join U9Play as a Promoter</h1>
+    <p id="description">Earn <strong>RM5 per player</strong> you refer!</p>
+
+    <a href="https://t.me/Amoiaztecwin" target="_blank" class="promoter-link" id="promoterBtn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" />
+      Be a promoter — Earn RM5/Per Player
+    </a>
+    <div class="instructions" id="promoterMsg">
+      Message: <em>“I want to be promoter”</em>
+    </div>
+
+    <a href="https://t.me/Amoiaztecwin" target="_blank" class="promoter-link bonus-link" id="bonusBtn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" />
+      🎁 CLAIM YOUR BONUS RM5 HERE (AS PLAYER)
+    </a>
+    <div class="instructions" id="bonusMsg">
+      Message: <em>“I want to claim Bonus RM5 for first registration”</em>
+    </div>
+
+    <a href="https://t.me/GoWellOng" target="_blank" class="promoter-link group-link" id="groupBtn">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" />
+      👥 Join Our Telegram Group Channel
+    </a>
+
+    <div class="footer" id="footerText">
+      <p>18+ only. Play responsibly.
+        <a href="/privacy.html">Privacy Policy</a> |
+        <a href="/terms.html">Terms of Service</a>
+      </p>
+    </div>
+  </div>
+
+ <script>
+  function toggleDropdown() {
+    document.getElementById("langMenu").classList.toggle("show");
+  }
+
+  function switchLang(lang) {
+    document.getElementById("langMenu").classList.remove("show");
+
+    if (lang === "ms") {
+      document.getElementById("headline").textContent = "💼 Sertai U9Play Sebagai Promoter";
+      document.getElementById("description").innerHTML = "Dapatkan <strong>RM5 setiap pemain</strong> yang anda rujuk!";
+      document.getElementById("promoterBtn").innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" /> Jadi promoter — Dapatkan RM5/Pemain';
+      document.getElementById("promoterMsg").innerHTML = 'Mesej: <em>“Saya mahu jadi promoter”</em>';
+      document.getElementById("bonusBtn").innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" /> 🎁 TUNTUT BONUS RM5 ANDA DI SINI (SEBAGAI PEMAIN)';
+      document.getElementById("bonusMsg").innerHTML = 'Mesej: <em>“Saya mahu tuntut Bonus RM5 untuk pendaftaran pertama”</em>';
+      document.getElementById("groupBtn").innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" /> 👥 Sertai Saluran Kumpulan Telegram Kami';
+      document.getElementById("footerText").innerHTML = '18+ sahaja. Main dengan bertanggungjawab. <a href="/privacy.html">Dasar Privasi</a> | <a href="/terms.html">Terma Perkhidmatan</a>';
+    } else {
+      document.getElementById("headline").textContent = "💼 Join U9Play as a Promoter";
+      document.getElementById("description").innerHTML = "Earn <strong>RM5 per player</strong> you refer!";
+      document.getElementById("promoterBtn").innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" /> Be a promoter — Earn RM5/Per Player';
+      document.getElementById("promoterMsg").innerHTML = 'Message: <em>“I want to be promoter”</em>';
+      document.getElementById("bonusBtn").innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" /> 🎁 CLAIM YOUR BONUS RM5 HERE (AS PLAYER)';
+      document.getElementById("bonusMsg").innerHTML = 'Message: <em>“I want to claim Bonus RM5 for first registration”</em>';
+      document.getElementById("groupBtn").innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Icon" /> 👥 Join Our Telegram Group Channel';
+      document.getElementById("footerText").innerHTML = '18+ only. Play responsibly. <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms of Service</a>';
+    }
+  }
+</script>
+
+
+
